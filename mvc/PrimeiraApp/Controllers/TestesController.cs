@@ -13,10 +13,11 @@ namespace MyApp.Namespace
         }
 
         // GET: TestesController/Details/5
-        [Route("detalhes/{id:int}")]
-        public ActionResult Details(int id)
+        [Route("detalhes/{codigo:int}/{nome:alpha?}")]
+        public ActionResult Details(int codigo, string nome = "")
         {
-            return View();
+            var print = new {Codigo = codigo, Nome = nome};
+            return Json(print);
         }
 
         // GET: TestesController/Create
@@ -43,9 +44,10 @@ namespace MyApp.Namespace
 
         // GET: TestesController/Edit/5
         [Route("editar/{id:int}")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string nome, string email)
         {
-            return View();
+            var print = new {Id = id, Nome = nome, Email = email};
+            return Json(print);
         }
 
         // POST: TestesController/Edit/5
